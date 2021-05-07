@@ -3,9 +3,6 @@ const port = 4000;
 const mongoose = require("mongoose");
 const app = express();
 
-
-
-
 async function db() {
     try {
         const db = await mongoose.connect(`mongodb://localhost:27017/${DB_NAME}`, {
@@ -22,4 +19,4 @@ async function db() {
 
 db()
 
-app.listen(port, console.log("I am listening to port")
+app.listen(port, console.log("I am listening to port"))

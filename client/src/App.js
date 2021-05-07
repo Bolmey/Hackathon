@@ -10,9 +10,6 @@ import {
 import Login from './components/login.js';
 import Chat from './components/chat.js'
 
-
-
-
 class App extends React.Component {
 
   state = {
@@ -27,8 +24,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-
-
         <Switch>
           <Route exact path="/"><Login userName={this.state.username} handleChange={this.handleChange} /></Route>
           <Route exact path="/chat"><Chat userName={this.state.username} handleChange={this.handleChange} /></Route>

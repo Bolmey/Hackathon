@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-
-
 class login extends Component {
-
-
-
     render() {
         console.log(this.props)
         return (

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
 class chat extends Component {
-
-
-
     render() {
-
-        console.log(this.props.userName)
+        // console.log(this.props.userName)
         return (
             <div>
                 <h1>You made it to CHATS!</h1>
