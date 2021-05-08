@@ -13,13 +13,15 @@ const socket = socketIOClient('http://localhost:5000');
 class App extends React.Component {
   state = {
     username: '',
-    message: ''
+    message: '',
+    chat: ["hi"]
   }
+
   componentDidMount() {
-    socket.on('message', data => {
-      this.setState({
-        message: data.message
-      })
+    socket.on('new-response', data => {
+      this.setState(state => ({
+        chat: [...state.chat, data.message]
+      }))
     })
   }
 
@@ -28,13 +30,22 @@ class App extends React.Component {
   }
 
   sendMessage = () => {
-    const message = document.querySelector('.type_msg').value;
-    this.setState({
-      message: message
-    })
-    socket.emit('new-message', {
-      message: message
-    });
+    // get content from textfield
+    let message = document.querySelector('.type_msg');
+    // check if message is empty
+    if (message.value.length > 0) {
+      this.setState({
+        message: message.value
+      })
+      socket.emit('new-message', {
+        message: message.value
+      })
+      // reset field
+      message.value = '';
+    } else {
+      // alert when user tries to send an empty message --> this could be sleeker ...
+      alert('You can\'t send an empty message')
+    }
   }
 
   render() {
@@ -42,7 +53,7 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/"><Login userName={this.state.username} handleChange={this.handleChange} /></Route>
-          <Route exact path="/chat"><Chat userName={this.state.username} message={this.state.message} handleMessage={this.handleMessage} sendMessage={this.sendMessage} /></Route>
+          <Route exact path="/chat"><Chat userName={this.state.username} message={this.state.message} sendMessage={this.sendMessage} chat={this.state.chat}/></Route>
         </Switch>
       </div>
     );

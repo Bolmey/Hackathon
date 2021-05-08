@@ -33,12 +33,11 @@ class Login extends Component {
                     placeholder="Your nickname"
                   />
                   <Link to="/chat" >
-                    <button
-                      type="submit"
+                    <span
                       className="btn btn-lg btn-secondary btn-block btn-signin mt-5"
                     >
                       Go to Chat
-                    </button>
+                    </span>
                   </Link>
                 </form>
               </div>

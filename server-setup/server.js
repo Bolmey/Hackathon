@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
       message : data.message
       // created_by:
     })
-    io.emit('message', data);
+    io.emit('new-response', data);
   })
   socket.on('disconnect', () => {
     console.log('disconnected')
