@@ -1,22 +1,25 @@
+// ℹ️ Gets access to environment variables/settings
+// https://www.npmjs.com/package/dotenv
+require("dotenv/config");
+
+// ℹ️ Connects to the database
+require("./db");
+
+// Handles http requests (express is node js framework)
+// https://www.npmjs.com/package/express
 const express = require("express");
-const port = 4000;
-const mongoose = require("mongoose");
+
 const app = express();
 
-async function db() {
-    try {
-        const db = await mongoose.connect(`mongodb://localhost:27017/${DB_NAME}`, {
-            useCreateIndex: true,
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+// ℹ️ This function is getting exported from the config folder. It runs most middlewares
+require("./config")(app);
 
-        console.log("Connected to db: ", db.connections[0].name);
-    } catch (err) {
-        console.error("Database connection failed!", err);
-    }
-}
+// 👇 Start handling routes here
+// Contrary to the views version, all routes are controled from the routes/index.js
+const allRoutes = require("./routes");
+app.use("/api", allRoutes);
 
-db()
+// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
+require("./error-handling")(app);
 
-app.listen(port, console.log("I am listening to port"))
+module.exports = app;
