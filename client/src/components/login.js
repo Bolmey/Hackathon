@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class Login extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
       return (
         <div className="background">
       <div className="container h-80">
