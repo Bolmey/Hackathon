@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Chat extends Component {
     render() {
-        // console.log(this.props.userName)
+        // console.log(this.props)
         return (
           <div className="container-fluid height background2 mt-5">
             <div className="row justify-content-center height ">
@@ -152,6 +152,8 @@ class Chat extends Component {
                         name=""
                         className="form-control type_msg"
                         placeholder="Type your message..."
+                        onChange={this.props.handleMessage}
+                        value={this.props.message}
                       ></textarea>
                       <div className="input-group-append">
                         <span className="input-group-text send_btn">

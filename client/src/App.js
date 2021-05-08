@@ -14,7 +14,8 @@ const socket = socketIOClient('http://localhost:5000');
 
 class App extends React.Component {
   state = {
-    username: ''
+    username: '',
+    message: ''
   }
   componentDidMount() {
     socket.on('message', data => {
@@ -26,8 +27,14 @@ class App extends React.Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleMessage = event => {
+    this.setState({
+      message: event.target.value
+    })
     socket.emit('new-message', {
-      [event.target.name]: event.target.value
+      message: event.target.value
     });
   }
 
@@ -36,7 +43,7 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/"><Login userName={this.state.username} handleChange={this.handleChange} /></Route>
-          <Route exact path="/chat"><Chat userName={this.state.username} handleChange={this.handleChange} /></Route>
+          <Route exact path="/chat"><Chat userName={this.state.username} message={this.state.message} handleMessage={this.handleMessage} /></Route>
         </Switch>
       </div>
     );
