@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class login extends Component {
+class Login extends Component {
   render() {
     console.log(this.props);
       return (
@@ -51,4 +51,4 @@ class login extends Component {
   }
 }
 
-export default login;
+export default Login;

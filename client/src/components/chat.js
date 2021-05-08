@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class chat extends Component {
+class Chat extends Component {
     render() {
         // console.log(this.props.userName)
         return (
@@ -10,7 +10,7 @@ class chat extends Component {
               <div className="col-md-2 col-xl-2 chat">
                 <div className="card mb-sm-2 mb-md-0 contacts_card">
                   <div className="card-body contacts_body">
-                    <ui className="contacts">
+                    <ul className="contacts">
                       <li>
                         <div className="d-flex bd-highlight">
                           <div className="img_cont">
@@ -76,7 +76,7 @@ class chat extends Component {
                           </div>
                         </div>
                       </li>
-                    </ui>
+                    </ul>
                   </div>
                   <div className="card-footer"></div>
                 </div>
@@ -107,7 +107,7 @@ class chat extends Component {
                     <div className="d-flex justify-content-end mb-4">
                       <div className="msg_cotainer_send">
                         Hi Khalid i am good tnx how about you?
-                        <span class="msg_time_send">8:55 AM, Today</span>
+                        <span className="msg_time_send">8:55 AM, Today</span>
                       </div>
                     </div>
                     <div className="d-flex justify-content-start mb-4">
@@ -176,4 +176,4 @@ class chat extends Component {
     }
 }
 
-export default chat;
+export default Chat;
