@@ -27,12 +27,13 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleMessage = event => {
+  sendMessage = () => {
+    const message = document.querySelector('.type_msg').value;
     this.setState({
-      message: event.target.value
+      message: message
     })
     socket.emit('new-message', {
-      message: event.target.value
+      message: message
     });
   }
 
@@ -41,7 +42,7 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/"><Login userName={this.state.username} handleChange={this.handleChange} /></Route>
-          <Route exact path="/chat"><Chat userName={this.state.username} message={this.state.message} handleMessage={this.handleMessage} /></Route>
+          <Route exact path="/chat"><Chat userName={this.state.username} message={this.state.message} handleMessage={this.handleMessage} sendMessage={this.sendMessage} /></Route>
         </Switch>
       </div>
     );

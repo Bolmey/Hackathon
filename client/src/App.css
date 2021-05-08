@@ -235,6 +235,7 @@ a {
   height: 60px !important;
   overflow-y: auto;
   resize: none;
+  cursor: pointer;
 }
 .type_msg:focus {
   box-shadow: none !important;

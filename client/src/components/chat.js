@@ -152,13 +152,11 @@ class Chat extends Component {
                         name=""
                         className="form-control type_msg"
                         placeholder="Type your message..."
-                        onChange={this.props.handleMessage}
-                        value={this.props.message}
                       ></textarea>
                       <div className="input-group-append">
-                        <span className="input-group-text send_btn">
+                        <button onClick={this.props.sendMessage} className="input-group-text send_btn">
                           <i className="fas fa-location-arrow"></i>
-                        </span>
+                        </button>
                       </div>
                     </div>
                   </div>
