@@ -4,11 +4,16 @@ class chat extends Component {
     render() {
         // console.log(this.props.userName)
         return (
-          <div className="container-fluid height">
+          <div className="container-fluid height background2 mt-5">
             <div className="row justify-content-center height ">
               {/* cuandro de la izquierda */}
               <div className="col-md-2 col-xl-2 chat">
                 <div className="card mb-sm-2 mb-md-0 contacts_card">
+                  <div className="card-header">
+                    <div className="input-group text-center">
+                      <h3 className="white">Users</h3>
+                    </div>
+                  </div>
                   <div className="card-body contacts_body">
                     <ui className="contacts">
                       <li>

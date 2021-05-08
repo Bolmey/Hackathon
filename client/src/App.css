@@ -16,6 +16,13 @@ body,html {
   background-size: cover;
   min-height: 100vh; 
 }
+.background2{
+background: linear-gradient(30deg, black, white);;
+  background-size: cover;
+  min-height: 100vh; 
+  margin:0  !important;
+  padding-top: 30px;
+}
 
 a{
   text-decoration:none;
@@ -207,6 +214,7 @@ a{
 .card-header{
   border-radius: 15px 15px 0 0 !important;
   border-bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.493) !important;
 }
 .card-footer{
 border-radius: 0 0 15px 15px !important;
@@ -409,5 +417,10 @@ margin-bottom: 15px !important;
 .height{
   height: 100% !important;
   margin: 2rem auto;
+  margin-top: 0  !important;
  
+}
+.white{
+  color: white;
+margin-left: 37%;
 }
