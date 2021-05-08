@@ -23,6 +23,7 @@ io.on('connection', (socket) => {
   // socket on incoming message
   socket.on('new-message', data => {
     console.log('data: ', data);
+    
     io.emit('message', data);
   })
   socket.on('disconnect', () => {
