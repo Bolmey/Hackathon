@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import {
@@ -28,7 +27,7 @@ class App extends React.Component {
           <Route exact path="/"><Login userName={this.state.username} handleChange={this.handleChange} /></Route>
           <Route exact path="/chat"><Chat userName={this.state.username} handleChange={this.handleChange} /></Route>
         </Switch>
-      </div >
+      </div>
     );
   }
 }
