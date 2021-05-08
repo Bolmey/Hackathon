@@ -1,12 +1,28 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
   username: {
     type: String,
-    // unique: true -> Ideally, should be unique, but its up to you
+    unique: true,
+    required: true,
+    minLength: 3,
+    maxLength: 50,
   },
-  password: String,
+  password: {
+    type: String,
+    required: true,
+    minLength: 8,
+  },
+  // avatar: {
+  //   originalname: { type: String },
+  //   path: {
+  //     type: String,
+  //     default:
+  //       '<insert path/URL to image>',
+  //   },
+  //   cloudinaryId: { type: String },
+  // },
+  messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
 });
 
 const User = model("User", userSchema);
